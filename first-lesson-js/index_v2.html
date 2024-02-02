@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>First JS lesson</h1>
+
+    <div class="item">
+        <h4>Name</h4>
+        <input type="inp">
+        <button class="btn">Start</button>
+        <h4>Last Name</h4>
+        <input type="inp2">
+        <button class="btn">Start</button>
+
+    </div>
+
+    <div class="item">
+        <h5>Привіт: <span class="out"></span></h5>
+        <h5>Твій вік:</h5>
+    </div>
+
+    <script>
+        // 1; куди вводимо (input)
+        // 2; кнопка (button)
+        // 3; виводимо резул (div)
+
+        
+        let inp = document.querySelector('.inp')
+        let btn = document.querySelector('.btn')
+        let out = document.querySelector('.out')
+
+        // console.log(btn)
+
+        // out.innerText = "<h1> hvhgju </h1>"
+        // out.innerHTML = "<h1> hvhgju </h1>"
+
+        btn.onclick = () => {
+            // console.log(inp.value)
+            out.innerHTML = inp.value + " " + inp2.value
+        } 
+
+    </script>
+</body>
+</html>
