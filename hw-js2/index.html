@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+<div class="wrapper">
+    
+    <section id="chocolate">
+        <h1>Покупка шоколадок</h1>
+        <div class="question" id="chocolateDataInputs">
+            <p>Введіть суму грошей в гаманці:</p>
+            <input type="number" name="userMoney" id="walletInput" placeholder="your money">
+            <p>Введіть ціну однієї шоколадки:</p>
+            <input type="number" name="userPrice" id="priceInput" placeholder="price">
+
+        </div>
+
+        <div class="answer">
+            <p id="chocolateResult">Підрахунок шоколадок...</p>
+            <p id="changeResult">Підрахунок залишку...</p>
+        </div>
+        <button class="next-btn" href="#backward">Next </button>
+    </section>
+
+    <div class="numbers">
+        <h1>Задом наперед</h1>
+        
+        <label for="numberInput">Введіть тризначне число:</label>
+        <input type="number" id="numberInput">
+        <button onclick="reverseNumber()">Вивести задом наперед</button>
+        <div id="result"></div>
+    </div>
+</div>
+
+    <script>
+        document.querySelector("#chocolateDataInputs").addEventListener("change", countChocolates);
+
+        function countChocolates() {
+
+            let userMoney = parseFloat(document.getElementById('walletInput').value);
+            let userPrice = parseFloat(document.getElementById('priceInput').value);
+            if ((userPrice > 0) && (userMoney >= 0)) {
+                let chocolateResult = Math.floor(userMoney / userPrice);
+                document.querySelector("#chocolateResult").innerHTML = `<p>Ви можете купити ${chocolateResult} шоколадок.</p>`;
+                let changeResult = userMoney % userPrice;
+                document.querySelector("#changeResult").innerHTML = `<p>У вас залишається ${changeResult} грн.</p>`;
+            }
+            else {
+                document.querySelector("#chocolateResult").innerHTML = `<p>Введіть коректне значення. </p>`;
+                document.querySelector("#changeResult").innerHTML = `<p>Неможливо розрахувати :( </p>`;
+            }
+        }
+
+    document.addEventListener("DOMContentLoaded", function() {
+        function reverseNumber() {
+            let number = document.getElementById('numberInput').value;
+
+            if (number.length !== 3 || isNaN(number)) {
+                document.getElementById('result').innerHTML = '<p style="color: red;">Будь ласка, введіть коректне тризначне число.</p>';
+            } 
+            else {
+                let reversedNumber = Number(number.toString().split('').reverse().join(''));
+                document.getElementById('result').innerHTML = '<p>Число задом наперед: ' + reversedNumber + '</p>';
+            }
+        }
+
+        window.reverseNumber = reverseNumber;
+    });
+    </script>
+</body>
+</html>

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <script>
+        let userName = prompt("Введіть своє ім'я:");
+        document.write(`<h3>Привіт, ${userName}!!!</h3>`);
+
+        const currentYear = new Date().getFullYear();
+        let birthYear = prompt("Введіть рік вашого народження:");
+        let age = currentYear - parseInt(birthYear);
+        document.write(`<h3>Ваш вік: ${age}.</h3>`);
+
+        let sideLength = prompt("Введіть довжину сторони квадрата:");
+        let perimeter = 4 * parseFloat(sideLength);
+        document.write(`<h3>Периметр квадрата: ${perimeter}.</h3>`);
+    </script>
+</body>
+</html>
